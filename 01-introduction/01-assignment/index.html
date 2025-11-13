@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Assignment-01</title>
+        <script>
+            // Code One
+            /*
+                This code will NOT work because:
+                - The browser reads the page from top to bottom
+                - When this code runs, the <h1> tag below hasn't been created yet
+                - So it cannot find the element and fails
+            */
+            document.getElementById("el").style.color = "red";
+        </script>
+        <script>
+            // Code Two
+            /*
+                This code WILL work because:
+                - window.onload means "wait until the whole page is ready"
+                - By that time, all parts of the page including the <h1> exist
+                - So it can find the element and change its color
+            */
+            window.onload = function () {
+                document.getElementById("el").style.color = "red";
+            };
+        </script>
+    </head>
+    <body>
+        <h1 id="el">Page Title</h1>
+        <script>
+            // Code Three
+            /*
+                This code WILL work because:
+                - This script comes AFTER the <h1> tag in the code
+                - So when this code runs, the <h1> already exists
+                - It can find the element and change the color successfully
+            */
+            document.getElementById("el").style.color = "red";
+        </script>
+    </body>
+</html>
